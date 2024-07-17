@@ -37,10 +37,10 @@ def find_optimal_ha_groups_parameters():
     active_bonus = 20;
     number_of_members = int(input("[*] Provide number of port-channel members: "));
     minimum_member_count = 1;
-    if minimum_member_count != 1:
+    if number_of_members > 1:
         sufficient_member_count = number_of_members//2;
     else:
-        sufficient_member_count = minimum_member_count;
+        sufficient_member_count = 1;
     for weight in range(0, 1000, 10):
         standby_score = weight;
         for active_member_count in range(number_of_members,-1,-1):
